@@ -435,13 +435,20 @@ function renderFrames(partData) {
 function renderRecall(partData, isFullyRevealed) {
   els.recallQuestion.textContent = partData.recall.question;
   els.recallOptions.innerHTML = "";
+  els.recallOptions.classList.toggle("locked", !isFullyRevealed);
   partData.recall.options.forEach((option, index) => {
     const button = document.createElement("button");
     button.className = "recall-button";
     button.type = "button";
     button.textContent = option;
-    button.disabled = !isFullyRevealed;
     button.addEventListener("click", () => {
+      if (!isFullyRevealed) {
+        els.recallFeedback.textContent = "Reveal all keyword parts first. Then come back to choose the best answer.";
+        els.recallFeedback.classList.remove("nudge");
+        void els.recallFeedback.offsetWidth;
+        els.recallFeedback.classList.add("nudge");
+        return;
+      }
       [...els.recallOptions.children].forEach((child, childIndex) => {
         child.disabled = true;
         if (childIndex === partData.recall.answer) child.classList.add("correct");

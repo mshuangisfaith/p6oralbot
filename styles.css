@@ -381,6 +381,11 @@ h3 {
   background: #ffffff;
 }
 
+.recall-options.locked .recall-button {
+  background: #f3f6fb;
+  border-style: dashed;
+}
+
 .recall-button.correct {
   background: var(--mint);
 }
@@ -395,6 +400,10 @@ h3 {
   font-weight: 900;
 }
 
+.feedback.nudge {
+  animation: nudge 260ms ease-out;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -403,6 +412,21 @@ h3 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(8px);
+  }
+  70% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
