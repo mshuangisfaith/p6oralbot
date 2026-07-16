@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>P6 Oral Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">P6 Oral Practice</p>
+          <h1>Teamwork and Learning Preferences</h1>
+        </div>
+        <div class="speech-panel" role="group" aria-label="Text to speech controls">
+          <label class="toggle">
+            <input id="speechToggle" type="checkbox" checked />
+            <span>Speech</span>
+          </label>
+          <button id="readCurrent" class="icon-button" type="button" title="Read current paragraph" aria-label="Read current paragraph">▶</button>
+          <button id="stopSpeech" class="icon-button" type="button" title="Stop reading" aria-label="Stop reading">■</button>
+        </div>
+      </header>
+
+      <main class="lesson-grid">
+        <aside class="sidebar" aria-label="Question navigation">
+          <div class="set-tabs" id="setTabs"></div>
+          <div class="question-list" id="questionList"></div>
+          <div class="score-card">
+            <span>Progress</span>
+            <strong id="progressText">0 / 0</strong>
+            <div class="meter"><span id="progressBar"></span></div>
+          </div>
+        </aside>
+
+        <section class="workspace" aria-live="polite">
+          <div class="question-card">
+            <p class="set-label" id="setLabel"></p>
+            <h2 id="questionTitle"></h2>
+            <p id="questionFocus" class="focus-line"></p>
+          </div>
+
+          <section class="reveal-card">
+            <div class="card-heading">
+              <div>
+                <p class="eyebrow">Model Response</p>
+                <h3 id="paragraphTitle"></h3>
+              </div>
+              <div class="stepper">
+                <button id="prevPart" class="nav-button" type="button">Back</button>
+                <span id="partCount"></span>
+                <button id="nextPart" class="nav-button" type="button">Next</button>
+              </div>
+            </div>
+
+            <div class="keyword-bank" id="keywordBank" aria-label="Keyword bank"></div>
+            <article class="response-box" id="responseBox"></article>
+          </section>
+
+          <section class="thinking-grid">
+            <div class="thinking-panel">
+              <h3>Response Moves</h3>
+              <div id="moveList" class="move-list"></div>
+            </div>
+            <div class="thinking-panel">
+              <h3>Sentence Frames</h3>
+              <div id="practicePrompts" class="prompt-stack"></div>
+            </div>
+          </section>
+
+          <section class="recall-card">
+            <div>
+              <p class="eyebrow">Recall Check</p>
+              <h3 id="recallQuestion"></h3>
+            </div>
+            <div id="recallOptions" class="recall-options"></div>
+            <p id="recallFeedback" class="feedback" aria-live="polite"></p>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
